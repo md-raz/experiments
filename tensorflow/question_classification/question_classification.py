@@ -15,7 +15,7 @@ from tensorflow.keras.layers.experimental.preprocessing import TextVectorization
 
 # -------------------------------- Dataset is downloaded -----------------------------
 
-# Uncomment these if you do not have the dataset downloaded (i.e. if you run the script standalone)
+
 url = "http://storage.googleapis.com/download.tensorflow.org/data/stack_overflow_16k.tar.gz"
 
 dataset = tf.keras.utils.get_file(
@@ -75,6 +75,8 @@ train_ds = raw_train_ds.map(vectorize_text)
 val_ds = raw_val_ds.map(vectorize_text)
 test_ds = raw_test_ds.map(vectorize_text)
 
+print ("\n")
+
 # ----------------------------------- Model is trained --------------------------------
 
 embedding_dim = 16
@@ -85,9 +87,9 @@ model = tf.keras.Sequential([layers.Embedding(max_features + 1,
                                                                       # layers.Dense() parameter is set to four.
 # model.summary()                                                     # Uncomment if you wish to see model summary
 
-model.compile(loss=losses.SparseCategoricalCrossentropy(from_logits=True),
+model.compile(loss=losses.SparseCategoricalCrossentropy(from_logits=False),       # Changed from binary crossentropy
               optimizer='adam',
-              metrics=tf.metrics.CategoricalCrossentropy())       # changed from BinaryCrossEntropy
+              metrics=tf.metrics.CategoricalAccuracy())       # Should be changed since no longer binary (?)
 
 epochs = 10                                                           # Set number of iterations for machine
 history = model.fit(train_ds, validation_data=val_ds, epochs=epochs)
@@ -100,8 +102,11 @@ print ("\n")
 print ('Loss: ', loss)
 print ('Accuracy: ', accuracy)
 print ("\n")
+
+# ----------------------------------- Model is exported --------------------------------
+
 export_model = tf.keras.Sequential([vectorize_layer, model,
-                                   layers.Activation('sigmoid')])
+                                   layers.Activation('sigmoid')])   
 
 export_model.compile(loss=losses.SparseCategoricalCrossentropy(from_logits=False),
                      optimizer='adam', metrics=['accuracy'])
