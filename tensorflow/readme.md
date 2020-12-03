@@ -4,7 +4,7 @@
 
 Follow the TensorFlow install tutorial found at https://www.tensorflow.org/install/pip
 
-This guide assumes you are using the windows x64 version. Some code may vary depending on your system.
+This guide assumes you are using the windows 7+ x64. Some code may vary depending on your system.
 
 Entering the python virtual environment (venv) req. Python 3.5-3.8 and venv >= 19.0. Package installations in the virutal environment do not affect the packages installed on your system. 
 Check your version number by entering <code>python3 --version</code> into command prompt if in windows. 
