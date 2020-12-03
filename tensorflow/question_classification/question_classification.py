@@ -87,19 +87,19 @@ model = tf.keras.Sequential([layers.Embedding(max_features + 1,
 
 model.compile(loss=losses.SparseCategoricalCrossentropy(from_logits=True),
               optimizer='adam',
-              metrics=tf.metrics.BinaryAccuracy(threshold=0.0))       # changed from BinaryCossEntropy
+              metrics=tf.metrics.CategoricalCrossentropy())       # changed from BinaryCrossEntropy
 
 epochs = 10                                                           # Set number of iterations for machine
 history = model.fit(train_ds, validation_data=val_ds, epochs=epochs)
 
 
 # ----------------------------------- Model is evaluated --------------------------------
-
+print ("\n")
 (loss, accuracy) = model.evaluate(test_ds)
-
+print ("\n")
 print ('Loss: ', loss)
 print ('Accuracy: ', accuracy)
-
+print ("\n")
 export_model = tf.keras.Sequential([vectorize_layer, model,
                                    layers.Activation('sigmoid')])
 
@@ -107,4 +107,5 @@ export_model.compile(loss=losses.SparseCategoricalCrossentropy(from_logits=False
                      optimizer='adam', metrics=['accuracy'])
 
 (loss, accuracy) = export_model.evaluate(raw_test_ds)
+print ("\n")
 print (accuracy)
