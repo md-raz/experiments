@@ -9,6 +9,5 @@ Follow the TensorFlow install tutorial found at https://www.tensorflow.org/insta
 This guide assumes you are using the windows x64 version. Some code may vary depending on your system.
 
 Entering the pythong virtual environment (venv) req. Python 3.5-3.8 and venv >= 19.0
-Check your version number by entering the following into command prompt if in windows. 
+Check your version number by entering <code>python3 --version</code> into command prompt if in windows. 
 
-		python3 --version pip3 --version
