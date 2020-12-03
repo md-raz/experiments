@@ -5,7 +5,7 @@ Repository for experimental code
 See each Folder for corresponding experimental code and documentation.
 
 
-Enter the virtual environment [in windows] by entering the following in the command prompt, where <ENV_NAME> is replaced for by the VEnv name for this specific project.
+Enter the python virtual environment [in windows] by entering the following in the command prompt, where <ENV_NAME> is replaced for by the VEnv name for this specific project.
 
     python -m venv --system-site-packages .\<ENV_NAME>
 		
