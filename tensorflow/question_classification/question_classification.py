@@ -107,4 +107,4 @@ export_model.compile(loss=losses.SparseCategoricalCrossentropy(from_logits=False
                      optimizer='adam', metrics=['accuracy'])
 
 (loss, accuracy) = export_model.evaluate(raw_test_ds)
-print accuracy
+print (accuracy)
