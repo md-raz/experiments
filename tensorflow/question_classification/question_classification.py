@@ -16,15 +16,15 @@ from tensorflow.keras.layers.experimental.preprocessing import TextVectorization
 # -------------------------------- Dataset is downloaded -----------------------------
 
 # Uncomment these if you do not have the dataset downloaded (i.e. if you run the script standalone)
-# url = "http://storage.googleapis.com/download.tensorflow.org/data/stack_overflow_16k.tar.gz"
-#
-# dataset = tf.keras.utils.get_file(
-#      "stack_overflow_16k.tar.gz",
-#      url,
-#      untar=True,
-#      cache_dir=".",  # Untar should be true if file is tar'd
-#      cache_subdir="",
-#      )
+url = "http://storage.googleapis.com/download.tensorflow.org/data/stack_overflow_16k.tar.gz"
+
+dataset = tf.keras.utils.get_file(
+     "stack_overflow_16k.tar.gz",
+     url,
+     untar=True,
+     cache_dir=".",  # Untar should be true if file is tar'd
+     cache_subdir="",
+     )
 
 # This code assumes this script is running in the same directory as the downloaded datasets.
 # dataset_dir = os.path.join(os.path.dirname(dataset),  'dirname')  # Issue here: Missing argument for folder name --> works when empty
