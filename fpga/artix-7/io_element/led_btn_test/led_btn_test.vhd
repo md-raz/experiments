@@ -1,4 +1,7 @@
 ----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
 -- Create Date: 02/07/2021 11:34:58 AM
 -- Design Name: 
 -- Module Name: LED_Button_Test - Behavioral
@@ -29,19 +32,17 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity LED_Button_Test is
-    Port (  btn1 : in bit;
-            btn2 : in bit;
-            btn3 : in bit;
-            led_1 : out STD_LOGIC_VECTOR (7 downto 0);
-            led_2 : out STD_LOGIC_VECTOR (7 downto 0);
-            led_3 : out STD_LOGIC_VECTOR (7 downto 0));
+    Port (  io_button :  in std_logic_vector (2 downto 0) := "000";
+            led_1 : out STD_LOGIC_VECTOR (7 downto 0));
+
 end LED_Button_Test;
     
 architecture Behavioral of LED_Button_Test is
     
 begin
-    led_1 <= "11111111" when btn1 = '1';
-    led_2 <= 8x"FF" when btn2 ='1';
-    led_3 <= 8x"FF" when btn3 = '1';
-    
+    with io_button select
+    led_1 <=    "11101101"      when "001",
+                "00000001"      when "010",
+                "10000000"      when others;
+        
 end Behavioral;
