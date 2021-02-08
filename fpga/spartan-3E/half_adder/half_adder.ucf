@@ -1,0 +1,7 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "bit1" LOC = G18;
+NET "bit2" LOC = H18;
+NET "led1" LOC = J14;
+NET "led2" LOC = J15;
