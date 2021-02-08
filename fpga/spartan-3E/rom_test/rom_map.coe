@@ -1,0 +1,29 @@
+;Test Memory Map
+; 20 rows, 6  bit depth
+; [EA] 2 bits + [A] 4 Bits 
+; starts at EA0 A0, EA0 A1 .. EA0 A5 .. EA1 A1 .. EA3 A5
+
+
+
+memory_initialization_radix = 2;
+memory_initialization_vector =
+000001,
+000010,
+000011,
+000100,
+000101,
+010001,
+010010,
+010011,
+010100,
+010101,
+100001,
+100010,
+100011,
+100100,
+100101,
+110001,
+110010,
+110011,
+110100,
+110101;
