@@ -24,4 +24,3 @@ begin
 	led2 <= bit1 and bit2;
 end Behavioral;
 
-v
