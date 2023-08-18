@@ -1,0 +1,2198 @@
+root@ms2:/home/md/Workspace/LiteX/litesata/bench# ./nexys_video.py --pll-refclk --build --load
+INFO:SoC:        __   _ __      _  __  
+INFO:SoC:       / /  (_) /____ | |/_/  
+INFO:SoC:      / /__/ / __/ -_)>  <    
+INFO:SoC:     /____/_/\__/\__/_/|_|  
+INFO:SoC:  Build your hardware, easily!
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Creating SoC... (2023-08-14 10:48:33)
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:FPGA device : xc7a200t-sbg484-1.
+INFO:SoC:System clock: 100.000MHz.
+INFO:SoCBusHandler:Creating Bus Handler...
+INFO:SoCBusHandler:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoCBusHandler:Adding reserved Bus Regions...
+INFO:SoCBusHandler:Bus Handler created.
+INFO:SoCCSRHandler:Creating CSR Handler...
+INFO:SoCCSRHandler:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoCCSRHandler:Adding reserved CSRs...
+INFO:SoCCSRHandler:CSR Handler created.
+INFO:SoCIRQHandler:Creating IRQ Handler...
+INFO:SoCIRQHandler:IRQ Handler (up to 32 Locations).
+INFO:SoCIRQHandler:Adding reserved IRQs...
+INFO:SoCIRQHandler:IRQ Handler created.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Initial SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoC:IRQ Handler (up to 32 Locations).
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Controller ctrl added.
+INFO:SoC:CPU None added.
+INFO:SoC:CPU None adding IO Region 0 at 0x00000000 (Size: 0x100000000).
+INFO:SoCBusHandler:io0 Region added at Origin: 0x00000000, Size: 0x100000000, Mode: RW, Cached: False Linker: False.
+INFO:SoCBusHandler:uartbone added as Bus Master.
+INFO:S7MMCM:Creating ClkOut5 sata_refclk of 150.00MHz (+-10000.00ppm).
+INFO:SoC:CSR Bridge csr added.
+INFO:SoCBusHandler:csr Region added at Origin: 0x00000000, Size: 0x00010000, Mode: RW, Cached: False Linker: False.
+INFO:SoCBusHandler:csr added as Bus Slave.
+INFO:SoCCSRHandler:csr added as CSR Master.
+INFO:SoCBusHandler:Interconnect: InterconnectPointToPoint (1 <-> 1).
+INFO:SoCCSRHandler:ctrl CSR allocated at Location 0.
+INFO:SoCCSRHandler:identifier_mem CSR allocated at Location 1.
+INFO:SoCCSRHandler:sata_bist CSR allocated at Location 2.
+INFO:SoCCSRHandler:sata_phy CSR allocated at Location 3.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Finalized SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+IO Regions: (1)
+io0                 : Origin: 0x00000000, Size: 0x100000000, Mode: RW, Cached: False Linker: False
+Bus Regions: (1)
+csr                 : Origin: 0x00000000, Size: 0x00010000, Mode: RW, Cached: False Linker: False
+Bus Masters: (1)
+- uartbone
+Bus Slaves: (1)
+- csr
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+CSR Locations: (4)
+- ctrl           : 0
+- identifier_mem : 1
+- sata_bist      : 2
+- sata_phy       : 3
+INFO:SoC:IRQ Handler (up to 32 Locations).
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:S7MMCM:Config:
+divclk_divide : 1
+clkout0_freq  : 100.00MHz
+clkout0_divide: 12
+clkout0_phase : 0.00°
+clkout1_freq  : 400.00MHz
+clkout1_divide: 3
+clkout1_phase : 0.00°
+clkout2_freq  : 400.00MHz
+clkout2_divide: 3
+clkout2_phase : 90.00°
+clkout3_freq  : 200.00MHz
+clkout3_divide: 6
+clkout3_phase : 0.00°
+clkout4_freq  : 100.00MHz
+clkout4_divide: 12
+clkout4_phase : 0.00°
+clkout5_freq  : 150.00MHz
+clkout5_divide: 8
+clkout5_phase : 0.00°
+vco           : 1200.00MHz
+clkfbout_mult : 12
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:SoC Hierarchy:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:
+SATATestSoC
+└─── crg (_CRG)
+│    └─── pll (S7MMCM)
+│    │    └─── [BUFG]
+│    │    └─── [FDCE]
+│    │    └─── [BUFG]
+│    │    └─── [FDCE]
+│    │    └─── [FDCE]
+│    │    └─── [FDCE]
+│    │    └─── [BUFG]
+│    │    └─── [FDCE]
+│    │    └─── [BUFG]
+│    │    └─── [BUFG]
+│    │    └─── [FDCE]
+│    │    └─── [FDCE]
+│    │    └─── [BUFG]
+│    │    └─── [MMCME2_ADV]
+│    │    └─── [FDCE]
+│    └─── idelayctrl (S7IDELAYCTRL)
+│    │    └─── [IDELAYCTRL]
+└─── bus (SoCBusHandler)
+│    └─── _interconnect (InterconnectPointToPoint)
+└─── csr (SoCCSRHandler)
+└─── irq (SoCIRQHandler)
+└─── ctrl (SoCController)
+└─── cpu (CPUNone)
+└─── identifier (Identifier)
+└─── uartbone_phy (RS232PHY)
+│    └─── tx (RS232PHYTX)
+│    │    └─── rs232clkphaseaccum_0* (RS232ClkPhaseAccum)
+│    │    └─── fsm (FSM)
+│    └─── rx (RS232PHYRX)
+│    │    └─── rs232clkphaseaccum_0* (RS232ClkPhaseAccum)
+│    │    └─── fsm (FSM)
+└─── uartbone (UARTBone)
+│    └─── phy (RS232PHY)
+│    │    └─── tx (RS232PHYTX)
+│    │    │    └─── rs232clkphaseaccum_0* (RS232ClkPhaseAccum)
+│    │    │    └─── fsm (FSM)
+│    │    └─── rx (RS232PHYRX)
+│    │    │    └─── rs232clkphaseaccum_0* (RS232ClkPhaseAccum)
+│    │    │    └─── fsm (FSM)
+│    └─── fsm (FSM)
+│    └─── timer (WaitTimer)
+└─── sata_phy (LiteSATAPHY)
+│    └─── phy (A7LiteSATAPHY)
+│    │    └─── tx_init (GTPTXInit)
+│    │    │    └─── fsm (FSM)
+│    │    │    └─── waittimer_0* (WaitTimer)
+│    │    │    └─── waittimer_1* (WaitTimer)
+│    │    └─── rx_init (GTPRXInit)
+│    │    │    └─── fsm (FSM)
+│    │    │    └─── waittimer_0* (WaitTimer)
+│    │    │    └─── waittimer_1* (WaitTimer)
+│    │    └─── _risingedge_0* (_RisingEdge)
+│    │    └─── _risingedge_1* (_RisingEdge)
+│    │    └─── _pulsesynchronizer_0* (_PulseSynchronizer)
+│    │    └─── _pulsesynchronizer_1* (_PulseSynchronizer)
+│    │    └─── _pulsesynchronizer_2* (_PulseSynchronizer)
+│    │    └─── qpll (GTPQuadPLL)
+│    │    │    └─── [GTPE2_COMMON]
+│    │    └─── [FDPE]
+│    │    └─── [GTPE2_CHANNEL]
+│    └─── crg (A7LiteSATAPHYCRG)
+│    │    └─── [BUFG]
+│    │    └─── [BUFG]
+│    └─── ctrl (LiteSATAPHYCtrl)
+│    │    └─── waittimer_0* (WaitTimer)
+│    │    └─── waittimer_1* (WaitTimer)
+│    │    └─── fsm (FSM)
+│    │    └─── waittimer_2* (WaitTimer)
+│    └─── datapath (LiteSATAPHYDatapath)
+│    │    └─── multiplexer_0* (Multiplexer)
+│    │    └─── litesataphydatapathtx_0* (LiteSATAPHYDatapathTX)
+│    │    │    └─── clockdomaincrossing_0* (ClockDomainCrossing)
+│    │    │    │    └─── asyncfifo_0* (AsyncFIFO)
+│    │    │    │    │    └─── fifo (AsyncFIFO)
+│    │    │    │    │    │    └─── graycounter_0* (GrayCounter)
+│    │    │    │    │    │    └─── graycounter_1* (GrayCounter)
+│    │    │    └─── strideconverter_0* (StrideConverter)
+│    │    │    │    └─── converter_0* (Converter)
+│    │    │    │    │    └─── _downconverter_0* (_DownConverter)
+│    │    └─── litesataphydatapathrx_0* (LiteSATAPHYDatapathRX)
+│    │    │    └─── strideconverter_0* (StrideConverter)
+│    │    │    │    └─── converter_0* (Converter)
+│    │    │    │    │    └─── _upconverter_0* (_UpConverter)
+│    │    │    └─── clockdomaincrossing_0* (ClockDomainCrossing)
+│    │    │    │    └─── asyncfifo_0* (AsyncFIFO)
+│    │    │    │    │    └─── fifo (AsyncFIFO)
+│    │    │    │    │    │    └─── graycounter_0* (GrayCounter)
+│    │    │    │    │    │    └─── graycounter_1* (GrayCounter)
+│    │    └─── demultiplexer_0* (Demultiplexer)
+│    │    └─── litesataphyaligntimer_0* (LiteSATAPHYAlignTimer)
+│    │    │    └─── timer (WaitTimer)
+└─── sata_core (LiteSATACore)
+│    └─── link (LiteSATALink)
+│    │    └─── tx (LiteSATALinkTX)
+│    │    │    └─── litesatacrcinserter_0* (LiteSATACRCInserter)
+│    │    │    │    └─── litesatacrc_0* (LiteSATACRC)
+│    │    │    │    │    └─── crcengine_0* (CRCEngine)
+│    │    │    │    └─── fsm_0* (FSM)
+│    │    │    └─── litesatascrambler_0* (LiteSATAScrambler)
+│    │    │    │    └─── scrambler_0* (Scrambler)
+│    │    │    └─── pipeline_0* (Pipeline)
+│    │    │    └─── fsm (FSM)
+│    │    │    └─── buffer_0* (Buffer)
+│    │    │    │    └─── pipe_valid (PipeValid)
+│    │    │    │    └─── pipeline (Pipeline)
+│    │    └─── tx_align (LiteSATAALIGNInserter)
+│    │    └─── tx_pipeline (Pipeline)
+│    │    └─── rx_align (LiteSATAALIGNRemover)
+│    │    └─── rx_cont (LiteSATACONTRemover)
+│    │    └─── rx (LiteSATALinkRX)
+│    │    │    └─── litesatascrambler_0* (LiteSATAScrambler)
+│    │    │    │    └─── scrambler_0* (Scrambler)
+│    │    │    └─── litesatacrcchecker_0* (LiteSATACRCChecker)
+│    │    │    │    └─── litesatacrc_0* (LiteSATACRC)
+│    │    │    │    │    └─── crcengine_0* (CRCEngine)
+│    │    │    │    └─── syncfifo_0* (SyncFIFO)
+│    │    │    │    │    └─── fifo (SyncFIFO)
+│    │    │    │    └─── fsm_0* (FSM)
+│    │    │    └─── pipeline_0* (Pipeline)
+│    │    │    └─── fsm (FSM)
+│    │    │    └─── buffer_0* (Buffer)
+│    │    │    │    └─── pipe_valid (PipeValid)
+│    │    │    │    └─── pipeline (Pipeline)
+│    │    └─── rx_buffer (SyncFIFO)
+│    │    │    └─── fifo (SyncFIFO)
+│    │    └─── rx_pipeline (Pipeline)
+│    └─── transport (LiteSATATransport)
+│    │    └─── tx (LiteSATATransportTX)
+│    │    │    └─── fsm_0* (FSM)
+│    │    └─── rx (LiteSATATransportRX)
+│    │    │    └─── fsm_0* (FSM)
+│    └─── command (LiteSATACommand)
+│    │    └─── tx (LiteSATACommandTX)
+│    │    │    └─── fsm_0* (FSM)
+│    │    └─── rx (LiteSATACommandRX)
+│    │    │    └─── fsm_0* (FSM)
+└─── sata_crossbar (LiteSATACrossbar)
+│    └─── litesataarbiter_0* (LiteSATAArbiter)
+│    │    └─── roundrobin_0* (RoundRobin)
+└─── sata_bist (LiteSATABIST)
+│    └─── generator (LiteSATABISTUnitCSR)
+│    │    └─── litesatabistgenerator_0* (LiteSATABISTGenerator)
+│    │    │    └─── scrambler_0* (Scrambler)
+│    │    │    └─── fsm (FSM)
+│    │    └─── fsm (FSM)
+│    └─── checker (LiteSATABISTUnitCSR)
+│    │    └─── litesatabistchecker_0* (LiteSATABISTChecker)
+│    │    │    └─── scrambler_0* (Scrambler)
+│    │    │    └─── fsm (FSM)
+│    │    └─── fsm (FSM)
+│    └─── identify (LiteSATAIdentifyCSR)
+│    │    └─── litesataidentify_0* (LiteSATAIdentify)
+│    │    │    └─── syncfifo_0* (SyncFIFO)
+│    │    │    │    └─── fifo (SyncFIFOBuffered)
+│    │    │    │    │    └─── fifo (SyncFIFO)
+│    │    │    └─── fsm (FSM)
+└─── csr_bridge (Wishbone2CSR)
+│    └─── fsm_0* (FSM)
+└─── csr_bankarray (CSRBankArray)
+│    └─── csrbank_0* (CSRBank)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstorage_1* (CSRStorage)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    └─── sram_0* (SRAM)
+│    └─── csrbank_1* (CSRBank)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstorage_1* (CSRStorage)
+│    │    └─── csrstorage_2* (CSRStorage)
+│    │    └─── csrstorage_3* (CSRStorage)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    │    └─── csrstatus_1* (CSRStatus)
+│    │    └─── csrstatus_2* (CSRStatus)
+│    │    └─── csrstatus_3* (CSRStatus)
+│    │    └─── csrstorage_4* (CSRStorage)
+│    │    └─── csrstorage_5* (CSRStorage)
+│    │    └─── csrstorage_6* (CSRStorage)
+│    │    └─── csrstorage_7* (CSRStorage)
+│    │    └─── csrstatus_4* (CSRStatus)
+│    │    └─── csrstatus_5* (CSRStatus)
+│    │    └─── csrstatus_6* (CSRStatus)
+│    │    └─── csrstatus_7* (CSRStatus)
+│    │    └─── csrstatus_8* (CSRStatus)
+│    │    └─── csrstatus_9* (CSRStatus)
+│    │    └─── csrstatus_10* (CSRStatus)
+│    │    └─── csrstatus_11* (CSRStatus)
+│    └─── csrbank_2* (CSRBank)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstatus_0* (CSRStatus)
+└─── csr_interconnect (InterconnectShared)
+* : Generated name.
+[]: BlackBox.
+
+INFO:SoC:--------------------------------------------------------------------------------
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source digilent_nexys_video.tcl
+# create_project -force -name digilent_nexys_video -part xc7a200t-sbg484-1
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1341.141 ; gain = 0.023 ; free physical = 2127 ; free virtual = 4291
+# set_msg_config -id {Common 17-55} -new_severity {Warning}
+# read_verilog {/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v}
+# read_xdc digilent_nexys_video.xdc
+# set_property PROCESSING_ORDER EARLY [get_files digilent_nexys_video.xdc]
+# synth_design -directive default -top digilent_nexys_video -part xc7a200t-sbg484-1
+Command: synth_design -directive default -top digilent_nexys_video -part xc7a200t-sbg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Device 21-403] Loading part xc7a200tsbg484-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 297186
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2036.699 ; gain = 378.738 ; free physical = 1187 ; free virtual = 3343
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'digilent_nexys_video' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:21]
+INFO: [Synth 8-3876] $readmem data file 'digilent_nexys_video_mem.init' is read successfully [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5893]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2556]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:3413]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:3965]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5275]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5352]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5470]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5494]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5627]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:1519]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:1519]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5882]
+INFO: [Synth 8-6157] synthesizing module 'IDELAYCTRL' [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:73864]
+INFO: [Synth 8-6155] done synthesizing module 'IDELAYCTRL' (0#1) [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:73864]
+WARNING: [Synth 8-7071] port 'RDY' of module 'IDELAYCTRL' is unconnected for instance 'IDELAYCTRL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5882]
+WARNING: [Synth 8-7023] instance 'IDELAYCTRL' of module 'IDELAYCTRL' has 3 connections declared, but only 2 given [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5882]
+INFO: [Synth 8-6157] synthesizing module 'GTPE2_COMMON' [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:49029]
+	Parameter PLL0_FBDIV bound to: 5 - type: integer 
+	Parameter PLL0_FBDIV_45 bound to: 4 - type: integer 
+	Parameter PLL0_REFCLK_DIV bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'GTPE2_COMMON' (0#1) [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:49029]
+WARNING: [Synth 8-7071] port 'DMONITOROUT' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL0FBCLKLOST' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL0REFCLKLOST' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL1FBCLKLOST' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL1LOCK' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL1OUTCLK' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL1OUTREFCLK' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL1REFCLKLOST' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PMARSVDOUT' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'REFCLKOUTMONITOR0' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'REFCLKOUTMONITOR1' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'BGRCALOVRDENB' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'GTEASTREFCLK0' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'GTEASTREFCLK1' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'GTGREFCLK0' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'GTGREFCLK1' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'GTREFCLK1' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'GTWESTREFCLK0' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'GTWESTREFCLK1' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL0LOCKDETCLK' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL1LOCKDETCLK' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL1LOCKEN' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL1REFCLKSEL' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLL1RESET' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLLRSVD1' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PLLRSVD2' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7071] port 'PMARSVD' of module 'GTPE2_COMMON' is unconnected for instance 'GTPE2_COMMON' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+WARNING: [Synth 8-7023] instance 'GTPE2_COMMON' of module 'GTPE2_COMMON' has 48 connections declared, but only 21 given [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5911]
+INFO: [Synth 8-6157] synthesizing module 'FDPE' [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:39088]
+	Parameter INIT bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'FDPE' (0#1) [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:39088]
+INFO: [Synth 8-6157] synthesizing module 'GTPE2_CHANNEL' [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:48327]
+	Parameter ACJTAG_DEBUG_MODE bound to: 1'b0 
+	Parameter ACJTAG_MODE bound to: 1'b0 
+	Parameter ACJTAG_RESET bound to: 1'b0 
+	Parameter ADAPT_CFG0 bound to: 20'b00000000000000000000 
+	Parameter ALIGN_COMMA_DOUBLE bound to: FALSE - type: string 
+	Parameter ALIGN_COMMA_ENABLE bound to: 10'b1111111111 
+	Parameter ALIGN_COMMA_WORD bound to: 2 - type: integer 
+	Parameter ALIGN_MCOMMA_DET bound to: TRUE - type: string 
+	Parameter ALIGN_MCOMMA_VALUE bound to: 10'b1010000011 
+	Parameter ALIGN_PCOMMA_DET bound to: TRUE - type: string 
+	Parameter ALIGN_PCOMMA_VALUE bound to: 10'b0101111100 
+	Parameter CBCC_DATA_SOURCE_SEL bound to: DECODED - type: string 
+	Parameter CFOK_CFG bound to: 43'b1001001000000000000000001000000111010000000 
+	Parameter CFOK_CFG2 bound to: 7'b0100000 
+	Parameter CFOK_CFG3 bound to: 7'b0100000 
+	Parameter CFOK_CFG4 bound to: 1'b0 
+	Parameter CFOK_CFG5 bound to: 2'b00 
+	Parameter CFOK_CFG6 bound to: 4'b0000 
+	Parameter CHAN_BOND_KEEP_ALIGN bound to: FALSE - type: string 
+	Parameter CHAN_BOND_MAX_SKEW bound to: 1 - type: integer 
+	Parameter CHAN_BOND_SEQ_1_1 bound to: 10'b0000000000 
+	Parameter CHAN_BOND_SEQ_1_2 bound to: 10'b0000000000 
+	Parameter CHAN_BOND_SEQ_1_3 bound to: 10'b0000000000 
+	Parameter CHAN_BOND_SEQ_1_4 bound to: 10'b0000000000 
+	Parameter CHAN_BOND_SEQ_1_ENABLE bound to: 4'b1111 
+	Parameter CHAN_BOND_SEQ_2_1 bound to: 10'b0000000000 
+	Parameter CHAN_BOND_SEQ_2_2 bound to: 10'b0000000000 
+	Parameter CHAN_BOND_SEQ_2_3 bound to: 10'b0000000000 
+	Parameter CHAN_BOND_SEQ_2_4 bound to: 10'b0000000000 
+	Parameter CHAN_BOND_SEQ_2_ENABLE bound to: 4'b1111 
+	Parameter CHAN_BOND_SEQ_2_USE bound to: FALSE - type: string 
+	Parameter CHAN_BOND_SEQ_LEN bound to: 1 - type: integer 
+	Parameter CLK_COMMON_SWING bound to: 1'b0 
+	Parameter CLK_CORRECT_USE bound to: FALSE - type: string 
+	Parameter CLK_COR_KEEP_IDLE bound to: FALSE - type: string 
+	Parameter CLK_COR_MAX_LAT bound to: 9 - type: integer 
+	Parameter CLK_COR_MIN_LAT bound to: 7 - type: integer 
+	Parameter CLK_COR_PRECEDENCE bound to: TRUE - type: string 
+	Parameter CLK_COR_REPEAT_WAIT bound to: 0 - type: integer 
+	Parameter CLK_COR_SEQ_1_1 bound to: 10'b0100000000 
+	Parameter CLK_COR_SEQ_1_2 bound to: 10'b0000000000 
+	Parameter CLK_COR_SEQ_1_3 bound to: 10'b0000000000 
+	Parameter CLK_COR_SEQ_1_4 bound to: 10'b0000000000 
+	Parameter CLK_COR_SEQ_1_ENABLE bound to: 4'b1111 
+	Parameter CLK_COR_SEQ_2_1 bound to: 10'b0100000000 
+	Parameter CLK_COR_SEQ_2_2 bound to: 10'b0000000000 
+	Parameter CLK_COR_SEQ_2_3 bound to: 10'b0000000000 
+	Parameter CLK_COR_SEQ_2_4 bound to: 10'b0000000000 
+	Parameter CLK_COR_SEQ_2_ENABLE bound to: 4'b1111 
+	Parameter CLK_COR_SEQ_2_USE bound to: FALSE - type: string 
+	Parameter CLK_COR_SEQ_LEN bound to: 1 - type: integer 
+	Parameter DEC_MCOMMA_DETECT bound to: TRUE - type: string 
+	Parameter DEC_PCOMMA_DETECT bound to: TRUE - type: string 
+	Parameter DEC_VALID_COMMA_ONLY bound to: TRUE - type: string 
+	Parameter DMONITOR_CFG bound to: 24'b000000000000101000000000 
+	Parameter ES_CLK_PHASE_SEL bound to: 1'b0 
+	Parameter ES_CONTROL bound to: 6'b000000 
+	Parameter ES_ERRDET_EN bound to: FALSE - type: string 
+	Parameter ES_EYE_SCAN_EN bound to: TRUE - type: string 
+	Parameter ES_HORZ_OFFSET bound to: 12'b000000010000 
+	Parameter ES_PMA_CFG bound to: 10'b0000000000 
+	Parameter ES_PRESCALE bound to: 5'b00000 
+	Parameter ES_QUALIFIER bound to: 80'b00000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ES_QUAL_MASK bound to: 80'b00000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ES_SDATA_MASK bound to: 80'b00000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter ES_VERT_OFFSET bound to: 9'b000000000 
+	Parameter FTS_DESKEW_SEQ_ENABLE bound to: 4'b1111 
+	Parameter FTS_LANE_DESKEW_CFG bound to: 4'b1111 
+	Parameter FTS_LANE_DESKEW_EN bound to: FALSE - type: string 
+	Parameter GEARBOX_MODE bound to: 3'b000 
+	Parameter LOOPBACK_CFG bound to: 1'b0 
+	Parameter OUTREFCLK_SEL_INV bound to: 2'b11 
+	Parameter PCS_PCIE_EN bound to: FALSE - type: string 
+	Parameter PCS_RSVD_ATTR bound to: 48'b000000000000000000000000000000000000000100000000 
+	Parameter PD_TRANS_TIME_FROM_P2 bound to: 12'b000000111100 
+	Parameter PD_TRANS_TIME_NONE_P2 bound to: 8'b00111100 
+	Parameter PD_TRANS_TIME_TO_P2 bound to: 8'b01100100 
+	Parameter PMA_LOOPBACK_CFG bound to: 1'b0 
+	Parameter PMA_RSV bound to: 819 - type: integer 
+	Parameter PMA_RSV2 bound to: 8256 - type: integer 
+	Parameter PMA_RSV3 bound to: 2'b00 
+	Parameter PMA_RSV4 bound to: 4'b0000 
+	Parameter PMA_RSV5 bound to: 1'b0 
+	Parameter PMA_RSV6 bound to: 1'b0 
+	Parameter PMA_RSV7 bound to: 1'b0 
+	Parameter RXBUFRESET_TIME bound to: 5'b00001 
+	Parameter RXBUF_ADDR_MODE bound to: FAST - type: string 
+	Parameter RXBUF_EIDLE_HI_CNT bound to: 4'b1000 
+	Parameter RXBUF_EIDLE_LO_CNT bound to: 4'b0000 
+	Parameter RXBUF_EN bound to: FALSE - type: string 
+	Parameter RXBUF_RESET_ON_CB_CHANGE bound to: TRUE - type: string 
+	Parameter RXBUF_RESET_ON_COMMAALIGN bound to: FALSE - type: string 
+	Parameter RXBUF_RESET_ON_EIDLE bound to: FALSE - type: string 
+	Parameter RXBUF_RESET_ON_RATE_CHANGE bound to: TRUE - type: string 
+	Parameter RXBUF_THRESH_OVFLW bound to: 61 - type: integer 
+	Parameter RXBUF_THRESH_OVRD bound to: FALSE - type: string 
+	Parameter RXBUF_THRESH_UNDFLW bound to: 4 - type: integer 
+	Parameter RXCDRFREQRESET_TIME bound to: 5'b00001 
+	Parameter RXCDRPHRESET_TIME bound to: 5'b00001 
+	Parameter RXCDR_CFG bound to: 83'b00000000000000000000100011111111110001000000110000000100100010010000001000000010000 
+	Parameter RXCDR_FR_RESET_ON_EIDLE bound to: 1'b0 
+	Parameter RXCDR_HOLD_DURING_EIDLE bound to: 1'b0 
+	Parameter RXCDR_LOCK_CFG bound to: 6'b001001 
+	Parameter RXCDR_PH_RESET_ON_EIDLE bound to: 1'b0 
+	Parameter RXDLY_CFG bound to: 16'b0000000000011111 
+	Parameter RXDLY_LCFG bound to: 9'b000110000 
+	Parameter RXDLY_TAP_CFG bound to: 16'b0000000000000000 
+	Parameter RXGEARBOX_EN bound to: FALSE - type: string 
+	Parameter RXISCANRESET_TIME bound to: 5'b00001 
+	Parameter RXLPMRESET_TIME bound to: 7'b0001111 
+	Parameter RXLPM_BIAS_STARTUP_DISABLE bound to: 1'b0 
+	Parameter RXLPM_CFG bound to: 4'b0110 
+	Parameter RXLPM_CFG1 bound to: 1'b0 
+	Parameter RXLPM_CM_CFG bound to: 1'b0 
+	Parameter RXLPM_GC_CFG bound to: 9'b111100010 
+	Parameter RXLPM_GC_CFG2 bound to: 3'b001 
+	Parameter RXLPM_HF_CFG bound to: 14'b00001111110000 
+	Parameter RXLPM_HF_CFG2 bound to: 5'b01010 
+	Parameter RXLPM_HF_CFG3 bound to: 4'b0000 
+	Parameter RXLPM_HOLD_DURING_EIDLE bound to: 1'b0 
+	Parameter RXLPM_INCM_CFG bound to: 1'b1 
+	Parameter RXLPM_IPCM_CFG bound to: 1'b0 
+	Parameter RXLPM_LF_CFG bound to: 18'b000000001111110000 
+	Parameter RXLPM_LF_CFG2 bound to: 5'b01010 
+	Parameter RXLPM_OSINT_CFG bound to: 3'b100 
+	Parameter RXOOB_CFG bound to: 7'b0000110 
+	Parameter RXOOB_CLK_CFG bound to: PMA - type: string 
+	Parameter RXOSCALRESET_TIME bound to: 5'b00011 
+	Parameter RXOSCALRESET_TIMEOUT bound to: 5'b00000 
+	Parameter RXOUT_DIV bound to: 2 - type: integer 
+	Parameter RXPCSRESET_TIME bound to: 5'b00001 
+	Parameter RXPHDLY_CFG bound to: 24'b000010000100000000100000 
+	Parameter RXPH_CFG bound to: 24'b110000000000000000000010 
+	Parameter RXPH_MONITOR_SEL bound to: 5'b00000 
+	Parameter RXPI_CFG0 bound to: 3'b000 
+	Parameter RXPI_CFG1 bound to: 1'b1 
+	Parameter RXPI_CFG2 bound to: 1'b1 
+	Parameter RXPMARESET_TIME bound to: 5'b00011 
+	Parameter RXPRBS_ERR_LOOPBACK bound to: 1'b0 
+	Parameter RXSLIDE_AUTO_WAIT bound to: 7 - type: integer 
+	Parameter RXSLIDE_MODE bound to: PCS - type: string 
+	Parameter RXSYNC_MULTILANE bound to: 1'b0 
+	Parameter RXSYNC_OVRD bound to: 1'b0 
+	Parameter RXSYNC_SKIP_DA bound to: 1'b0 
+	Parameter RX_BIAS_CFG bound to: 16'b0000111100110011 
+	Parameter RX_BUFFER_CFG bound to: 6'b000000 
+	Parameter RX_CLK25_DIV bound to: 6 - type: integer 
+	Parameter RX_CLKMUX_EN bound to: 1'b1 
+	Parameter RX_CM_SEL bound to: 2'b11 
+	Parameter RX_CM_TRIM bound to: 4'b1010 
+	Parameter RX_DATA_WIDTH bound to: 20 - type: integer 
+	Parameter RX_DDI_SEL bound to: 6'b000000 
+	Parameter RX_DEBUG_CFG bound to: 14'b00000000000000 
+	Parameter RX_DEFER_RESET_BUF_EN bound to: TRUE - type: string 
+	Parameter RX_DISPERR_SEQ_MATCH bound to: TRUE - type: string 
+	Parameter RX_OS_CFG bound to: 13'b0000010000000 
+	Parameter RX_SIG_VALID_DLY bound to: 10 - type: integer 
+	Parameter RX_XCLK_SEL bound to: RXUSR - type: string 
+	Parameter SAS_MAX_COM bound to: 64 - type: integer 
+	Parameter SAS_MIN_COM bound to: 36 - type: integer 
+	Parameter SATA_BURST_SEQ_LEN bound to: 4'b0101 
+	Parameter SATA_BURST_VAL bound to: 3'b100 
+	Parameter SATA_EIDLE_VAL bound to: 3'b100 
+	Parameter SATA_MAX_BURST bound to: 8 - type: integer 
+	Parameter SATA_MAX_INIT bound to: 21 - type: integer 
+	Parameter SATA_MAX_WAKE bound to: 7 - type: integer 
+	Parameter SATA_MIN_BURST bound to: 4 - type: integer 
+	Parameter SATA_MIN_INIT bound to: 12 - type: integer 
+	Parameter SATA_MIN_WAKE bound to: 4 - type: integer 
+	Parameter SATA_PLL_CFG bound to: VCO_3000MHZ - type: string 
+	Parameter SHOW_REALIGN_COMMA bound to: TRUE - type: string 
+	Parameter SIM_RECEIVER_DETECT_PASS bound to: TRUE - type: string 
+	Parameter SIM_RESET_SPEEDUP bound to: FALSE - type: string 
+	Parameter SIM_TX_EIDLE_DRIVE_LEVEL bound to: X - type: string 
+	Parameter SIM_VERSION bound to: 2.0 - type: string 
+	Parameter TERM_RCAL_CFG bound to: 15'b100001000010000 
+	Parameter TERM_RCAL_OVRD bound to: 3'b000 
+	Parameter TRANS_TIME_RATE bound to: 8'b00001110 
+	Parameter TST_RSV bound to: 0 - type: integer 
+	Parameter TXBUF_EN bound to: TRUE - type: string 
+	Parameter TXBUF_RESET_ON_RATE_CHANGE bound to: TRUE - type: string 
+	Parameter TXDLY_CFG bound to: 16'b0000000000011111 
+	Parameter TXDLY_LCFG bound to: 9'b000110000 
+	Parameter TXDLY_TAP_CFG bound to: 16'b0000000000000000 
+	Parameter TXGEARBOX_EN bound to: FALSE - type: string 
+	Parameter TXOOB_CFG bound to: 1'b0 
+	Parameter TXOUT_DIV bound to: 2 - type: integer 
+	Parameter TXPCSRESET_TIME bound to: 5'b00001 
+	Parameter TXPHDLY_CFG bound to: 24'b000010000100000000100000 
+	Parameter TXPH_CFG bound to: 16'b0000011110000000 
+	Parameter TXPH_MONITOR_SEL bound to: 5'b00000 
+	Parameter TXPI_CFG0 bound to: 2'b00 
+	Parameter TXPI_CFG1 bound to: 2'b00 
+	Parameter TXPI_CFG2 bound to: 2'b00 
+	Parameter TXPI_CFG3 bound to: 1'b0 
+	Parameter TXPI_CFG4 bound to: 1'b0 
+	Parameter TXPI_CFG5 bound to: 3'b000 
+	Parameter TXPI_GREY_SEL bound to: 1'b0 
+	Parameter TXPI_INVSTROBE_SEL bound to: 1'b0 
+	Parameter TXPI_PPMCLK_SEL bound to: TXUSRCLK2 - type: string 
+	Parameter TXPI_PPM_CFG bound to: 8'b00000000 
+	Parameter TXPI_SYNFREQ_PPM bound to: 3'b001 
+	Parameter TXPMARESET_TIME bound to: 5'b00001 
+	Parameter TXSYNC_MULTILANE bound to: 1'b0 
+	Parameter TXSYNC_OVRD bound to: 1'b0 
+	Parameter TXSYNC_SKIP_DA bound to: 1'b0 
+	Parameter TX_CLK25_DIV bound to: 6 - type: integer 
+	Parameter TX_CLKMUX_EN bound to: 1'b1 
+	Parameter TX_DATA_WIDTH bound to: 20 - type: integer 
+	Parameter TX_DEEMPH0 bound to: 6'b000000 
+	Parameter TX_DEEMPH1 bound to: 6'b000000 
+	Parameter TX_DRIVE_MODE bound to: DIRECT - type: string 
+	Parameter TX_EIDLE_ASSERT_DELAY bound to: 3'b110 
+	Parameter TX_EIDLE_DEASSERT_DELAY bound to: 3'b100 
+	Parameter TX_LOOPBACK_DRIVE_HIZ bound to: FALSE - type: string 
+	Parameter TX_MAINCURSOR_SEL bound to: 1'b0 
+	Parameter TX_MARGIN_FULL_0 bound to: 7'b1001110 
+	Parameter TX_MARGIN_FULL_1 bound to: 7'b1001001 
+	Parameter TX_MARGIN_FULL_2 bound to: 7'b1000101 
+	Parameter TX_MARGIN_FULL_3 bound to: 7'b1000010 
+	Parameter TX_MARGIN_FULL_4 bound to: 7'b1000000 
+	Parameter TX_MARGIN_LOW_0 bound to: 7'b1000110 
+	Parameter TX_MARGIN_LOW_1 bound to: 7'b1000100 
+	Parameter TX_MARGIN_LOW_2 bound to: 7'b1000010 
+	Parameter TX_MARGIN_LOW_3 bound to: 7'b1000000 
+	Parameter TX_MARGIN_LOW_4 bound to: 7'b1000000 
+	Parameter TX_PREDRIVER_MODE bound to: 1'b0 
+	Parameter TX_RXDETECT_CFG bound to: 14'b01100000110010 
+	Parameter TX_RXDETECT_REF bound to: 3'b100 
+	Parameter TX_XCLK_SEL bound to: TXOUT - type: string 
+	Parameter UCODEER_CLR bound to: 1'b0 
+	Parameter USE_PCS_CLK_PHASE_SEL bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'GTPE2_CHANNEL' (0#1) [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:48327]
+WARNING: [Synth 8-689] width (1) of port connection 'DMONITOROUT' does not match port width (15) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6340]
+WARNING: [Synth 8-689] width (1) of port connection 'PCSRSVDOUT' does not match port width (16) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6346]
+WARNING: [Synth 8-689] width (1) of port connection 'RXBUFSTATUS' does not match port width (3) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6350]
+WARNING: [Synth 8-689] width (1) of port connection 'RXCHARISCOMMA' does not match port width (4) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6357]
+WARNING: [Synth 8-689] width (2) of port connection 'RXCHARISK' does not match port width (4) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6358]
+WARNING: [Synth 8-689] width (1) of port connection 'RXCHBONDO' does not match port width (4) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6359]
+WARNING: [Synth 8-689] width (1) of port connection 'RXCLKCORCNT' does not match port width (2) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6360]
+WARNING: [Synth 8-689] width (16) of port connection 'RXDATA' does not match port width (32) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6365]
+WARNING: [Synth 8-689] width (1) of port connection 'RXDATAVALID' does not match port width (2) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6366]
+WARNING: [Synth 8-689] width (2) of port connection 'RXDISPERR' does not match port width (4) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6367]
+WARNING: [Synth 8-689] width (1) of port connection 'RXHEADER' does not match port width (3) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6370]
+WARNING: [Synth 8-689] width (2) of port connection 'RXNOTINTABLE' does not match port width (4) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6372]
+WARNING: [Synth 8-689] width (1) of port connection 'RXPHMONITOR' does not match port width (5) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6380]
+WARNING: [Synth 8-689] width (1) of port connection 'RXPHSLIPMONITOR' does not match port width (5) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6381]
+WARNING: [Synth 8-689] width (1) of port connection 'RXSTARTOFSEQ' does not match port width (2) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6386]
+WARNING: [Synth 8-689] width (1) of port connection 'RXSTATUS' does not match port width (3) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6387]
+WARNING: [Synth 8-689] width (1) of port connection 'TXBUFSTATUS' does not match port width (2) of module 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6391]
+WARNING: [Synth 8-7071] port 'RXOSINTSTARTED' of module 'GTPE2_CHANNEL' is unconnected for instance 'GTPE2_CHANNEL' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6178]
+WARNING: [Synth 8-7023] instance 'GTPE2_CHANNEL' of module 'GTPE2_CHANNEL' has 227 connections declared, but only 226 given [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6178]
+INFO: [Synth 8-6157] synthesizing module 'FDCE' [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:38932]
+INFO: [Synth 8-6155] done synthesizing module 'FDCE' (0#1) [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:38932]
+INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:80311]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT_F bound to: 12.000000 - type: double 
+	Parameter CLKIN1_PERIOD bound to: 10.000000 - type: double 
+	Parameter CLKOUT0_DIVIDE_F bound to: 12.000000 - type: double 
+	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT1_DIVIDE bound to: 3 - type: integer 
+	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT2_DIVIDE bound to: 3 - type: integer 
+	Parameter CLKOUT2_PHASE bound to: 90.000000 - type: double 
+	Parameter CLKOUT3_DIVIDE bound to: 6 - type: integer 
+	Parameter CLKOUT3_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT4_DIVIDE bound to: 12 - type: integer 
+	Parameter CLKOUT4_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT5_DIVIDE bound to: 8 - type: integer 
+	Parameter CLKOUT5_PHASE bound to: 0.000000 - type: double 
+	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
+	Parameter REF_JITTER1 bound to: 0.010000 - type: double 
+INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (0#1) [/tools/Xilinx/Vivado/2023.1/scripts/rt/data/unisim_comp.v:80311]
+WARNING: [Synth 8-7071] port 'CLKFBOUTB' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'CLKFBSTOPPED' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'CLKINSTOPPED' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'CLKOUT0B' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'CLKOUT1B' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'CLKOUT2B' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'CLKOUT3B' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'CLKOUT6' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'DO' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'DRDY' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'PSDONE' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'CLKIN2' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'CLKINSEL' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'DADDR' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'DCLK' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'DEN' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'DI' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'DWE' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'PSCLK' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'PSEN' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7071] port 'PSINCDEC' of module 'MMCME2_ADV' is unconnected for instance 'MMCME2_ADV' [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+WARNING: [Synth 8-7023] instance 'MMCME2_ADV' of module 'MMCME2_ADV' has 33 connections declared, but only 12 given [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6596]
+INFO: [Synth 8-6155] done synthesizing module 'digilent_nexys_video' (0#1) [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:21]
+WARNING: [Synth 8-6014] Unused sequential element main_datapath_rx_converter_converter_source_payload_valid_token_count_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4914]
+WARNING: [Synth 8-6014] Unused sequential element main_a7litesataphy_tx_init_gttxpd0_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5041]
+WARNING: [Synth 8-6014] Unused sequential element main_a7litesataphy_tx_init_txdlyen0_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5045]
+WARNING: [Synth 8-6014] Unused sequential element main_a7litesataphy_rx_init_gtrxpd0_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5068]
+WARNING: [Synth 8-6014] Unused sequential element main_a7litesataphy_rx_init_rxphalign0_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5070]
+WARNING: [Synth 8-6014] Unused sequential element main_tx_pipe_valid_source_first_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2986]
+WARNING: [Synth 8-6014] Unused sequential element main_tx_pipe_valid_source_last_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2987]
+WARNING: [Synth 8-6014] Unused sequential element main_rx_pipe_valid_source_first_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:3347]
+WARNING: [Synth 8-6014] Unused sequential element main_rx_pipe_valid_source_last_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:3348]
+WARNING: [Synth 8-6014] Unused sequential element main_transport_tx_fis_type_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5261]
+WARNING: [Synth 8-6014] Unused sequential element main_command_tx_is_identify_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5297]
+WARNING: [Synth 8-6014] Unused sequential element main_command_rx_d2h_status_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5321]
+WARNING: [Synth 8-6014] Unused sequential element main_command_rx_d2h_errors_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5322]
+WARNING: [Synth 8-6014] Unused sequential element main_satatestsoc_scratch_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5489]
+WARNING: [Synth 8-6014] Unused sequential element main_satatestsoc_bus_errors_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5490]
+WARNING: [Synth 8-6014] Unused sequential element main_generator_sector_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5581]
+WARNING: [Synth 8-6014] Unused sequential element main_generator_count_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5585]
+WARNING: [Synth 8-6014] Unused sequential element main_generator_loops_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5589]
+WARNING: [Synth 8-6014] Unused sequential element main_generator_random_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5593]
+WARNING: [Synth 8-6014] Unused sequential element main_generator_done_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5594]
+WARNING: [Synth 8-6014] Unused sequential element main_generator_aborted_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5595]
+WARNING: [Synth 8-6014] Unused sequential element main_generator_errors_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5596]
+WARNING: [Synth 8-6014] Unused sequential element main_generator_cycles_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5597]
+WARNING: [Synth 8-6014] Unused sequential element main_checker_sector_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5604]
+WARNING: [Synth 8-6014] Unused sequential element main_checker_count_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5608]
+WARNING: [Synth 8-6014] Unused sequential element main_checker_loops_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5612]
+WARNING: [Synth 8-6014] Unused sequential element main_checker_random_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5616]
+WARNING: [Synth 8-6014] Unused sequential element main_checker_done_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5617]
+WARNING: [Synth 8-6014] Unused sequential element main_checker_aborted_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5618]
+WARNING: [Synth 8-6014] Unused sequential element main_checker_errors_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5619]
+WARNING: [Synth 8-6014] Unused sequential element main_checker_cycles_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5620]
+WARNING: [Synth 8-6014] Unused sequential element main_identify_done_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5621]
+WARNING: [Synth 8-6014] Unused sequential element main_identify_data_width_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5622]
+WARNING: [Synth 8-6014] Unused sequential element main_identify_source_valid_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5623]
+WARNING: [Synth 8-6014] Unused sequential element main_identify_source_data_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5624]
+WARNING: [Synth 8-6014] Unused sequential element main_litesataphy_enable_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5639]
+WARNING: [Synth 8-6014] Unused sequential element main_litesataphy_status_re_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5640]
+WARNING: [Synth 8-6014] Unused sequential element storage_dat0_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6428]
+WARNING: [Synth 8-6014] Unused sequential element storage_1_dat0_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6448]
+WARNING: [Synth 8-6014] Unused sequential element storage_2_dat0_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6467]
+WARNING: [Synth 8-6014] Unused sequential element storage_3_dat0_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6485]
+WARNING: [Synth 8-6014] Unused sequential element storage_4_dat0_reg was removed.  [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6504]
+WARNING: [Synth 8-3936] Found unconnected internal register 'storage_dat1_reg' and it is trimmed from '38' to '36' bits. [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6431]
+WARNING: [Synth 8-3936] Found unconnected internal register 'storage_1_dat1_reg' and it is trimmed from '38' to '36' bits. [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6451]
+WARNING: [Synth 8-7129] Port fmc2sata_clk_n in module digilent_nexys_video is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fmc2sata_clk_p in module digilent_nexys_video is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2147.637 ; gain = 489.676 ; free physical = 1050 ; free virtual = 3208
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2165.449 ; gain = 507.488 ; free physical = 1049 ; free virtual = 3207
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2165.449 ; gain = 507.488 ; free physical = 1049 ; free virtual = 3207
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2171.387 ; gain = 0.000 ; free physical = 1044 ; free virtual = 3201
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc]
+CRITICAL WARNING: [Vivado 12-4430] You are lowering the severity from an ERROR. This can potentially lead to board damage or other functionality issues on hardware. If this is not desired, please run 'reset_property SEVERITY [get_drc_checks REQP-49]' to undo this change. [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc:60]
+INFO: [Timing 38-2] Deriving generated clocks [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc:73]
+WARNING: [Vivado 12-3521] Clock specified in more than one group: main_crg_clkout0 [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc:73]
+Finished Parsing XDC File [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/digilent_nexys_video_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/digilent_nexys_video_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2307.199 ; gain = 0.000 ; free physical = 1026 ; free virtual = 3183
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2307.199 ; gain = 0.000 ; free physical = 1026 ; free virtual = 3183
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2307.199 ; gain = 649.238 ; free physical = 1024 ; free virtual = 3180
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tsbg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2307.199 ; gain = 649.238 ; free physical = 1024 ; free virtual = 3180
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2307.199 ; gain = 649.238 ; free physical = 1017 ; free virtual = 3180
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3936] Found unconnected internal register 'storage_4_dat1_reg' and it is trimmed from '34' to '32' bits. [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:6508]
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatalinktx_litesatacrcinserter_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatalinktx_fsm_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatalinkrx_litesatacrcchecker_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatalinkrx_fsm_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatatransporttx_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatatransportrx_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatacommandtx_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_grant_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatabist_litesatabistgenerator_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatabist_fsm0_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatabist_litesatabistchecker_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatabist_fsm1_state_reg' in module 'digilent_nexys_video'
+INFO: [Synth 8-802] inferred FSM for state register 'builder_satatestsoc_litesatabist_state_reg' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                               00 |                               00
+*
+                 iSTATE0 |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatalinkrx_litesatacrcchecker_state_reg' using encoding 'sequential' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              000 |                              000
+*
+                 iSTATE0 |                              001 |                              001
+                 iSTATE1 |                              010 |                              010
+                 iSTATE2 |                              011 |                              011
+                 iSTATE4 |                              100 |                              101
+                 iSTATE6 |                              101 |                              110
+                 iSTATE5 |                              110 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatalinkrx_fsm_state_reg' using encoding 'sequential' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE4 |                              000 |                              000
+*
+                  iSTATE |                              001 |                              001
+                 iSTATE1 |                              010 |                              010
+                 iSTATE5 |                              011 |                              011
+                 iSTATE3 |                              100 |                              101
+                 iSTATE0 |                              101 |                              110
+                 iSTATE2 |                              110 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatalinktx_fsm_state_reg' using encoding 'sequential' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               00
+*
+                 iSTATE0 |                              010 |                               01
+                 iSTATE1 |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatalinktx_litesatacrcinserter_state_reg' using encoding 'one-hot' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE2 |                               00 |                               00
+*
+                  iSTATE |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+                 iSTATE0 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatacommandtx_state_reg' using encoding 'sequential' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE1 |                               00 |                               00
+*
+                  iSTATE |                               01 |                               01
+                 iSTATE2 |                               10 |                               10
+                 iSTATE0 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatabist_fsm1_state_reg' using encoding 'sequential' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE2 |                               00 |                               00
+*
+                  iSTATE |                               01 |                               01
+                 iSTATE1 |                               10 |                               10
+                 iSTATE0 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatabist_litesatabistchecker_state_reg' using encoding 'sequential' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE1 |                               00 |                               00
+*
+                  iSTATE |                               01 |                               01
+                 iSTATE0 |                               10 |                               10
+                 iSTATE2 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatabist_state_reg' using encoding 'sequential' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE1 |                              001 |                               00
+                  iSTATE |                              010 |                               10
+                 iSTATE0 |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_grant_reg' using encoding 'one-hot' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               00
+*
+                 iSTATE0 |                              010 |                               01
+                 iSTATE1 |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatabist_litesatabistgenerator_state_reg' using encoding 'one-hot' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE1 |                               00 |                               00
+*
+                  iSTATE |                               01 |                               01
+                 iSTATE2 |                               10 |                               10
+                 iSTATE0 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'builder_satatestsoc_litesatabist_fsm0_state_reg' using encoding 'sequential' in module 'digilent_nexys_video'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2307.199 ; gain = 649.238 ; free physical = 1024 ; free virtual = 3183
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   33 Bit       Adders := 2     
+	   2 Input   32 Bit       Adders := 6     
+	   2 Input   23 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 4     
+	   2 Input    8 Bit       Adders := 8     
+	   2 Input    6 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 8     
+	   2 Input    3 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 4     
+	   2 Input    1 Bit       Adders := 4     
++---XORs : 
+	   2 Input     32 Bit         XORs := 4     
+	   2 Input      4 Bit         XORs := 4     
+	   2 Input      1 Bit         XORs := 113   
+	   3 Input      1 Bit         XORs := 53    
+	   4 Input      1 Bit         XORs := 47    
+	   7 Input      1 Bit         XORs := 7     
+	   5 Input      1 Bit         XORs := 43    
+	   6 Input      1 Bit         XORs := 18    
+	  10 Input      1 Bit         XORs := 11    
+	   9 Input      1 Bit         XORs := 5     
+	  14 Input      1 Bit         XORs := 4     
+	  16 Input      1 Bit         XORs := 3     
+	  15 Input      1 Bit         XORs := 1     
+	  12 Input      1 Bit         XORs := 19    
+	  11 Input      1 Bit         XORs := 9     
+	   8 Input      1 Bit         XORs := 2     
+	  13 Input      1 Bit         XORs := 9     
++---Registers : 
+	              160 Bit    Registers := 1     
+	               48 Bit    Registers := 2     
+	               36 Bit    Registers := 3     
+	               32 Bit    Registers := 21    
+	               23 Bit    Registers := 2     
+	               16 Bit    Registers := 11    
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 13    
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 24    
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 12    
+	                1 Bit    Registers := 94    
++---RAMs : 
+	              17K Bit	(512 X 34 bit)          RAMs := 1     
+	               8K Bit	(256 X 35 bit)          RAMs := 1     
+	              288 Bit	(8 X 36 bit)          RAMs := 2     
+	               64 Bit	(2 X 32 bit)          RAMs := 1     
++---Muxes : 
+	   7 Input  160 Bit        Muxes := 1     
+	   4 Input  160 Bit        Muxes := 1     
+	   3 Input   48 Bit        Muxes := 1     
+	   2 Input   36 Bit        Muxes := 2     
+	   7 Input   32 Bit        Muxes := 4     
+	   2 Input   32 Bit        Muxes := 30    
+	   3 Input   32 Bit        Muxes := 7     
+	   4 Input   32 Bit        Muxes := 6     
+	   5 Input   32 Bit        Muxes := 1     
+	   9 Input   32 Bit        Muxes := 1     
+	  13 Input   32 Bit        Muxes := 1     
+	   6 Input   30 Bit        Muxes := 1     
+	   9 Input   23 Bit        Muxes := 1     
+	   2 Input   23 Bit        Muxes := 2     
+	   2 Input   18 Bit        Muxes := 1     
+	   3 Input   16 Bit        Muxes := 2     
+	   2 Input   16 Bit        Muxes := 3     
+	  13 Input   16 Bit        Muxes := 1     
+	   2 Input   14 Bit        Muxes := 2     
+	   2 Input   11 Bit        Muxes := 1     
+	   4 Input   11 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 13    
+	   7 Input    8 Bit        Muxes := 3     
+	   5 Input    8 Bit        Muxes := 2     
+	   3 Input    8 Bit        Muxes := 2     
+	   4 Input    8 Bit        Muxes := 4     
+	   2 Input    7 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 10    
+	  13 Input    4 Bit        Muxes := 1     
+	   3 Input    4 Bit        Muxes := 2     
+	   7 Input    3 Bit        Muxes := 5     
+	   3 Input    3 Bit        Muxes := 6     
+	   2 Input    3 Bit        Muxes := 10    
+	   5 Input    3 Bit        Muxes := 2     
+	   4 Input    3 Bit        Muxes := 1     
+	   7 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 19    
+	   3 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 7     
+	   7 Input    1 Bit        Muxes := 19    
+	   2 Input    1 Bit        Muxes := 99    
+	  13 Input    1 Bit        Muxes := 24    
+	  10 Input    1 Bit        Muxes := 7     
+	   3 Input    1 Bit        Muxes := 34    
+	   9 Input    1 Bit        Muxes := 11    
+	   5 Input    1 Bit        Muxes := 9     
+	   6 Input    1 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 40    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port fmc2sata_clk_n in module digilent_nexys_video is either unconnected or has no load
+WARNING: [Synth 8-7129] Port fmc2sata_clk_p in module digilent_nexys_video is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (FDPE_3) is unused and will be removed from module digilent_nexys_video.
+WARNING: [Synth 8-3332] Sequential element (FDPE_4) is unused and will be removed from module digilent_nexys_video.
+WARNING: [Synth 8-3332] Sequential element (FDPE_5) is unused and will be removed from module digilent_nexys_video.
+WARNING: [Synth 8-3332] Sequential element (FDPE_6) is unused and will be removed from module digilent_nexys_video.
+WARNING: [Synth 8-3332] Sequential element (FDPE_9) is unused and will be removed from module digilent_nexys_video.
+WARNING: [Synth 8-3332] Sequential element (FDPE_10) is unused and will be removed from module digilent_nexys_video.
+WARNING: [Synth 8-3332] Sequential element (FDPE_11) is unused and will be removed from module digilent_nexys_video.
+WARNING: [Synth 8-3332] Sequential element (FDPE_12) is unused and will be removed from module digilent_nexys_video.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_builder_satatestsoc_litesatalinktx_litesatacrcinserter_state_reg[0]) is unused and will be removed from module digilent_nexys_video.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_builder_satatestsoc_litesatabist_litesatabistgenerator_state_reg[0]) is unused and will be removed from module digilent_nexys_video.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2307.199 ; gain = 649.238 ; free physical = 1000 ; free virtual = 3168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++---------------------+------------+---------------+----------------+
+|Module Name          | RTL Object | Depth x Width | Implemented As | 
++---------------------+------------+---------------+----------------+
+|digilent_nexys_video | mem        | 32x8          | LUT            | 
+|digilent_nexys_video | p_0_out    | 32x8          | LUT            | 
++---------------------+------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping Report (see note below)
++---------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name          | RTL Object    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++---------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|digilent_nexys_video | storage_4_reg | 512 x 32(READ_FIRST)   | W |   | 512 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++---------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++---------------------+---------------+-----------+----------------------+--------------+
+|Module Name          | RTL Object    | Inference | Size (Depth x Width) | Primitives   | 
++---------------------+---------------+-----------+----------------------+--------------+
+|digilent_nexys_video | storage_1_reg | Implied   | 8 x 36               | RAM32M x 6   | 
+|digilent_nexys_video | storage_2_reg | Implied   | 2 x 32               | RAM32M x 6   | 
+|digilent_nexys_video | storage_3_reg | Implied   | 256 x 35             | RAM64M x 48  | 
+|digilent_nexys_video | storage_reg   | Implied   | 8 x 36               | RAM32M x 6   | 
++---------------------+---------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+main_crg_clkout0 in more then one group at line 73 of file /home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 2307.199 ; gain = 649.238 ; free physical = 1000 ; free virtual = 3168
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2346.387 ; gain = 688.426 ; free physical = 889 ; free virtual = 3050
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++---------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name          | RTL Object    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++---------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|digilent_nexys_video | storage_4_reg | 512 x 32(READ_FIRST)   | W |   | 512 x 32(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++---------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++---------------------+---------------+-----------+----------------------+--------------+
+|Module Name          | RTL Object    | Inference | Size (Depth x Width) | Primitives   | 
++---------------------+---------------+-----------+----------------------+--------------+
+|digilent_nexys_video | storage_1_reg | Implied   | 8 x 36               | RAM32M x 6   | 
+|digilent_nexys_video | storage_2_reg | Implied   | 2 x 32               | RAM32M x 6   | 
+|digilent_nexys_video | storage_3_reg | Implied   | 256 x 35             | RAM64M x 48  | 
+|digilent_nexys_video | storage_reg   | Implied   | 8 x 36               | RAM32M x 6   | 
++---------------------+---------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance storage_4_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 2354.395 ; gain = 696.434 ; free physical = 874 ; free virtual = 3042
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:21]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:21]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:21]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:21]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:21]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:21]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5015]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5015]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5015]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5015]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5015]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5015]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5015]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5015]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5018]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5018]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5018]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5018]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5018]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5018]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5018]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5018]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5002]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5002]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5002]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5002]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5002]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5002]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5002]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5002]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:1687]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:4353]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5239]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5239]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5239]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5239]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5239]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5239]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5239]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:5239]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2352]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2064]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2064]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2064]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2064]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2064]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.v:2064]
+INFO: [Common 17-14] Message 'Synth 8-5396' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2354.395 ; gain = 696.434 ; free physical = 874 ; free virtual = 3042
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2354.395 ; gain = 696.434 ; free physical = 874 ; free virtual = 3042
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2354.395 ; gain = 696.434 ; free physical = 874 ; free virtual = 3042
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2354.395 ; gain = 696.434 ; free physical = 874 ; free virtual = 3042
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2354.395 ; gain = 696.434 ; free physical = 874 ; free virtual = 3042
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2354.395 ; gain = 696.434 ; free physical = 874 ; free virtual = 3042
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |BUFG          |     9|
+|2     |CARRY4        |   149|
+|3     |GTPE2_CHANNEL |     1|
+|4     |GTPE2_COMMON  |     1|
+|5     |IDELAYCTRL    |     1|
+|6     |LUT1          |   206|
+|7     |LUT2          |   431|
+|8     |LUT3          |   278|
+|9     |LUT4          |   407|
+|10    |LUT5          |   444|
+|11    |LUT6          |   830|
+|12    |MMCME2_ADV    |     1|
+|13    |MUXF7         |     2|
+|14    |RAM32M        |    17|
+|15    |RAM32X1D      |     2|
+|16    |RAM64M        |    44|
+|17    |RAM64X1D      |     4|
+|18    |RAMB18E1      |     1|
+|19    |FDCE          |     8|
+|20    |FDPE          |    17|
+|21    |FDRE          |  1455|
+|22    |FDSE          |   146|
+|23    |IBUF          |     3|
+|24    |OBUF          |     5|
++------+--------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2354.395 ; gain = 696.434 ; free physical = 874 ; free virtual = 3042
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1697 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 2354.395 ; gain = 554.684 ; free physical = 874 ; free virtual = 3042
+Synthesis Optimization Complete : Time (s): cpu = 00:00:50 ; elapsed = 00:00:51 . Memory (MB): peak = 2354.402 ; gain = 696.434 ; free physical = 874 ; free virtual = 3042
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2354.402 ; gain = 0.000 ; free physical = 1155 ; free virtual = 3323
+INFO: [Netlist 29-17] Analyzing 220 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'digilent_nexys_video' is not ideal for floorplanning, since the cellview 'digilent_nexys_video' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 2 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 2 OBUFs to IO ports without IO buffers.
+Parsing XDC File [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc:73]
+INFO: [Timing 38-2] Deriving generated clocks [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc:73]
+WARNING: [Vivado 12-3521] Clock specified in more than one group: main_crg_clkout0 [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc:73]
+Finished Parsing XDC File [/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2836.621 ; gain = 0.000 ; free physical = 874 ; free virtual = 3042
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 67 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 17 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 44 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 4 instances
+
+Synth Design complete | Checksum: 1b8c66e
+INFO: [Common 17-83] Releasing license: Synthesis
+73 Infos, 235 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:03 ; elapsed = 00:01:01 . Memory (MB): peak = 2836.621 ; gain = 1495.480 ; free physical = 874 ; free virtual = 3042
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2157.828; main = 2157.828; forked = 423.780
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3357.832; main = 2836.625; forked = 1003.434
+# report_timing_summary -file digilent_nexys_video_timing_synth.rpt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+# report_utilization -hierarchical -file digilent_nexys_video_utilization_hierarchical_synth.rpt
+# report_utilization -file digilent_nexys_video_utilization_synth.rpt
+# write_checkpoint -force digilent_nexys_video_synth.dcp
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2883.668 ; gain = 0.000 ; free physical = 855 ; free virtual = 3024
+INFO: [Common 17-1381] The checkpoint '/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video_synth.dcp' has been generated.
+# opt_design -directive default
+Command: opt_design -directive default
+INFO: [Vivado_Tcl 4-136] Directive used for opt_design is: default
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.92 . Memory (MB): peak = 2939.695 ; gain = 16.008 ; free physical = 844 ; free virtual = 3013
+
+Starting Cache Timing Information Task
+Ending Cache Timing Information Task | Checksum: e431aebd
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2939.695 ; gain = 0.000 ; free physical = 844 ; free virtual = 3013
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-1566] Pulled 9 inverters resulting in an inversion of 84 pins
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 21e33e88f
+
+Time (s): cpu = 00:00:00.47 ; elapsed = 00:00:00.19 . Memory (MB): peak = 2939.695 ; gain = 0.000 ; free physical = 798 ; free virtual = 2967
+INFO: [Opt 31-389] Phase Retarget created 3 cells and removed 13 cells
+INFO: [Opt 31-1021] In phase Retarget, 4 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 1edf33634
+
+Time (s): cpu = 00:00:00.52 ; elapsed = 00:00:00.23 . Memory (MB): peak = 2939.695 ; gain = 0.000 ; free physical = 798 ; free virtual = 2967
+INFO: [Opt 31-389] Phase Constant propagation created 1 cells and removed 2 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 2 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 14daa99f9
+
+Time (s): cpu = 00:00:00.59 ; elapsed = 00:00:00.3 . Memory (MB): peak = 2939.695 ; gain = 0.000 ; free physical = 798 ; free virtual = 2967
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 17 cells
+INFO: [Opt 31-1021] In phase Sweep, 190 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 14daa99f9
+
+Time (s): cpu = 00:00:00.66 ; elapsed = 00:00:00.34 . Memory (MB): peak = 2939.695 ; gain = 0.000 ; free physical = 798 ; free virtual = 2967
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+INFO: [Opt 31-1021] In phase BUFG optimization, 1 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 10bdeba2b
+
+Time (s): cpu = 00:00:00.76 ; elapsed = 00:00:00.45 . Memory (MB): peak = 2939.695 ; gain = 0.000 ; free physical = 798 ; free virtual = 2967
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 10bdeba2b
+
+Time (s): cpu = 00:00:00.78 ; elapsed = 00:00:00.46 . Memory (MB): peak = 2939.695 ; gain = 0.000 ; free physical = 798 ; free virtual = 2967
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 5 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               3  |              13  |                                              4  |
+|  Constant propagation         |               1  |               2  |                                              2  |
+|  Sweep                        |               0  |              17  |                                            190  |
+|  BUFG optimization            |               0  |               0  |                                              1  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              5  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2939.695 ; gain = 0.000 ; free physical = 798 ; free virtual = 2967
+Ending Logic Optimization Task | Checksum: 10bdeba2b
+
+Time (s): cpu = 00:00:00.8 ; elapsed = 00:00:00.48 . Memory (MB): peak = 2939.695 ; gain = 0.000 ; free physical = 798 ; free virtual = 2967
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 1 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 0 Total Ports: 2
+Ending PowerOpt Patch Enables Task | Checksum: 10bdeba2b
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 752 ; free virtual = 2921
+Ending Power Optimization Task | Checksum: 10bdeba2b
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.87 . Memory (MB): peak = 3119.562 ; gain = 179.867 ; free physical = 752 ; free virtual = 2921
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 10bdeba2b
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 752 ; free virtual = 2921
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 752 ; free virtual = 2921
+Ending Netlist Obfuscation Task | Checksum: 10bdeba2b
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 752 ; free virtual = 2921
+INFO: [Common 17-83] Releasing license: Implementation
+28 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+# place_design -directive default
+Command: place_design -directive default
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 1 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 46-5] The placer was invoked with the 'default' directive.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 752 ; free virtual = 2921
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: ffd2a284
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 752 ; free virtual = 2921
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 752 ; free virtual = 2921
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Place 30-568] A LUT 'clk100_inst' is driving clock pin of 8 registers. This could lead to large hold time violations. First few involved registers are:
+	FDCE_1 {FDCE}
+	FDCE_3 {FDCE}
+	FDCE_2 {FDCE}
+	FDCE {FDCE}
+	FDCE_5 {FDCE}
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 15a6f73ee
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 751 ; free virtual = 2921
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 1b2cb1e5f
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 751 ; free virtual = 2920
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1b2cb1e5f
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 751 ; free virtual = 2920
+Phase 1 Placer Initialization | Checksum: 1b2cb1e5f
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 751 ; free virtual = 2920
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 17c30cf7f
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 747 ; free virtual = 2916
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 2510c167f
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 748 ; free virtual = 2918
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 2510c167f
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:03 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 748 ; free virtual = 2918
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 11bb73a2a
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:06 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 743 ; free virtual = 2912
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 145 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 55 nets or LUTs. Breaked 0 LUT, combined 55 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register to Pipeline Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 743 ; free virtual = 2912
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |             55  |                    55  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |             55  |                    55  |           0  |           4  |  00:00:00  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 1423677ee
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:07 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 743 ; free virtual = 2912
+Phase 2.4 Global Placement Core | Checksum: 1ef9b9e57
+
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:08 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2912
+Phase 2 Global Placement | Checksum: 1ef9b9e57
+
+Time (s): cpu = 00:00:25 ; elapsed = 00:00:08 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2912
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 19c8aa467
+
+Time (s): cpu = 00:00:26 ; elapsed = 00:00:08 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2912
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 18ceb07a1
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:08 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 743 ; free virtual = 2912
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 1f158347f
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:08 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 743 ; free virtual = 2912
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1eca7d4e8
+
+Time (s): cpu = 00:00:28 ; elapsed = 00:00:08 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 743 ; free virtual = 2912
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 20ba8897a
+
+Time (s): cpu = 00:00:31 ; elapsed = 00:00:09 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 217713d05
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:10 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 1d0c0a8d8
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:11 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 1c5b208c1
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:11 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+Phase 3 Detail Placement | Checksum: 1c5b208c1
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:11 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 23edec8a1
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.326 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 162b61f22
+
+Time (s): cpu = 00:00:00.53 ; elapsed = 00:00:00.23 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 162b61f22
+
+Time (s): cpu = 00:00:00.61 ; elapsed = 00:00:00.31 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+Phase 4.1.1.1 BUFG Insertion | Checksum: 23edec8a1
+
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:12 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.516. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 14a751c05
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:13 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 743 ; free virtual = 2906
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:13 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 743 ; free virtual = 2906
+Phase 4.1 Post Commit Optimization | Checksum: 14a751c05
+
+Time (s): cpu = 00:00:37 ; elapsed = 00:00:13 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 14a751c05
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:13 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                2x2|
+|___________|___________________|___________________|
+|      South|                1x1|                2x2|
+|___________|___________________|___________________|
+|       East|                1x1|                1x1|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 14a751c05
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:13 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+Phase 4.3 Placer Reporting | Checksum: 14a751c05
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:13 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:13 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 9d7f0241
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:13 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+Ending Placer Task | Checksum: 7fc523e0
+
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:13 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+INFO: [Common 17-83] Releasing license: Implementation
+30 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:14 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 742 ; free virtual = 2911
+# report_utilization -hierarchical -file digilent_nexys_video_utilization_hierarchical_place.rpt
+# report_utilization -file digilent_nexys_video_utilization_place.rpt
+# report_io -file digilent_nexys_video_io.rpt
+report_io: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.21 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 743 ; free virtual = 2913
+# report_control_sets -verbose -file digilent_nexys_video_control_sets.rpt
+report_control_sets: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.12 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 744 ; free virtual = 2913
+# report_clock_utilization -file digilent_nexys_video_clock_utilization.rpt
+# write_checkpoint -force digilent_nexys_video_place.dcp
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.77 ; elapsed = 00:00:00.25 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 744 ; free virtual = 2919
+INFO: [Common 17-1381] The checkpoint '/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video_place.dcp' has been generated.
+# route_design -directive default
+Command: route_design -directive default
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-270] Using Router directive 'default'.
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 361d7ca5 ConstDB: 0 ShapeSum: 49a7a73b RouteDB: 0
+Post Restoration Checksum: NetGraph: df526c37 | NumContArr: 7c40bb3 | Constraints: 190a55ad | Timing: 0
+Phase 1 Build RT Design | Checksum: 10020cd97
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:47 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 747 ; free virtual = 2911
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 10020cd97
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:47 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 740 ; free virtual = 2910
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 10020cd97
+
+Time (s): cpu = 00:00:57 ; elapsed = 00:00:47 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 739 ; free virtual = 2910
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: df56dbf3
+
+Time (s): cpu = 00:01:04 ; elapsed = 00:00:51 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 683 ; free virtual = 2877
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.691  | TNS=0.000  | WHS=-0.309 | THS=-83.478|
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.0107501 %
+  Global Horizontal Routing Utilization  = 0.00789822 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 3905
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 3904
+  Number of Partially Routed Nets     = 1
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 1ce0c0ff7
+
+Time (s): cpu = 00:01:06 ; elapsed = 00:00:51 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 669 ; free virtual = 2850
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+Phase 3.1 Global Routing | Checksum: 1ce0c0ff7
+
+Time (s): cpu = 00:01:06 ; elapsed = 00:00:51 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 669 ; free virtual = 2850
+Phase 3 Initial Routing | Checksum: 1a504e304
+
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:52 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 859
+ Number of Nodes with overlaps = 196
+ Number of Nodes with overlaps = 61
+ Number of Nodes with overlaps = 23
+ Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.285  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 1c8d72f42
+
+Time (s): cpu = 00:01:19 ; elapsed = 00:00:57 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+Phase 4 Rip-up And Reroute | Checksum: 1c8d72f42
+
+Time (s): cpu = 00:01:19 ; elapsed = 00:00:57 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+
+Phase 5.1.1 Update Timing
+Phase 5.1.1 Update Timing | Checksum: 13ab8c922
+
+Time (s): cpu = 00:01:20 ; elapsed = 00:00:57 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.373  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Delay CleanUp | Checksum: 13ab8c922
+
+Time (s): cpu = 00:01:20 ; elapsed = 00:00:57 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 13ab8c922
+
+Time (s): cpu = 00:01:20 ; elapsed = 00:00:57 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+Phase 5 Delay and Skew Optimization | Checksum: 13ab8c922
+
+Time (s): cpu = 00:01:20 ; elapsed = 00:00:57 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 12d507bc5
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:00:58 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.373  | TNS=0.000  | WHS=0.033  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 1797aa9ff
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:00:58 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+Phase 6 Post Hold Fix | Checksum: 1797aa9ff
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:00:58 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.372791 %
+  Global Horizontal Routing Utilization  = 0.447191 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 11c39f5d9
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:00:58 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 11c39f5d9
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:00:58 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Phase 9 Depositing Routes
+INFO: [Route 35-467] Router swapped GT pin GTPE2_COMMON/GTREFCLK0 to physical pin GTPE2_COMMON_X0Y1/GTGREFCLK0
+Phase 9 Depositing Routes | Checksum: 18fe23af5
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:58 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.373  | TNS=0.000  | WHS=0.033  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 18fe23af5
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:00:58 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+INFO: [Route 35-16] Router Completed Successfully
+
+Phase 11 Post-Route Event Processing
+Phase 11 Post-Route Event Processing | Checksum: 132d5ab28
+
+Time (s): cpu = 00:01:23 ; elapsed = 00:00:58 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Time (s): cpu = 00:01:23 ; elapsed = 00:00:58 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 680 ; free virtual = 2851
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+15 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:24 ; elapsed = 00:01:00 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 673 ; free virtual = 2844
+# phys_opt_design -directive default
+Command: phys_opt_design -directive default
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Vivado_Tcl 4-241] Physical synthesis in post route mode 
+INFO: [Vivado_Tcl 4-137] Directive used for phys_opt_design is: default
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.52 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 674 ; free virtual = 2844
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+6 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+# write_checkpoint -force digilent_nexys_video_route.dcp
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.76 ; elapsed = 00:00:00.27 . Memory (MB): peak = 3119.562 ; gain = 0.000 ; free physical = 670 ; free virtual = 2846
+INFO: [Common 17-1381] The checkpoint '/home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video_route.dcp' has been generated.
+# report_timing_summary -no_header -no_detailed_paths
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (1)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (2)
+6. checking no_output_delay (5)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (1)
+---------------------------------
+ There is 1 register/latch pin which need pulse_width check. (LOW)
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (2)
+------------------------------
+ There are 2 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (5)
+-------------------------------
+ There are 5 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      0.371        0.000                      0                 5972        0.032        0.000                      0                 5972        1.333        0.000                       0                  1959  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock                          Waveform(ns)         Period(ns)      Frequency(MHz)
+-----                          ------------         ----------      --------------
+clk100                         {0.000 5.000}        10.000          100.000         
+  builder_satatestsoc_mmcm_fb  {0.000 5.000}        10.000          100.000         
+  main_crg_clkout0             {0.000 5.000}        10.000          100.000         
+  main_s7mmcm_clkout           {0.000 3.333}        6.667           150.000         
+sata_rx_clk                    {0.000 3.333}        6.666           150.015         
+sata_tx_clk                    {0.000 3.333}        6.666           150.015         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock                              WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----                              -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+clk100                               8.839        0.000                      0                    7        0.181        0.000                      0                    7        3.000        0.000                       0                    10  
+  builder_satatestsoc_mmcm_fb                                                                                                                                                    8.751        0.000                       0                     2  
+  main_crg_clkout0                   0.371        0.000                      0                 5315        0.032        0.000                      0                 5315        3.600        0.000                       0                  1664  
+  main_s7mmcm_clkout                 5.528        0.000                      0                    1        0.282        0.000                      0                    1        2.833        0.000                       0                     4  
+sata_rx_clk                          1.241        0.000                      0                  478        0.069        0.000                      0                  478        1.333        0.000                       0                   165  
+sata_tx_clk                          0.426        0.000                      0                  171        0.121        0.000                      0                  171        1.333        0.000                       0                   114  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+# report_route_status -file digilent_nexys_video_route_status.rpt
+# report_drc -file digilent_nexys_video_drc.rpt
+Command: report_drc -file digilent_nexys_video_drc.rpt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2023.1/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/md/Workspace/LiteX/litesata/bench/build/digilent_nexys_video/gateware/digilent_nexys_video_drc.rpt.
+report_drc completed successfully
+# report_timing_summary -datasheet -max_paths 10 -file digilent_nexys_video_timing.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+# report_power -file digilent_nexys_video_power.rpt
+Command: report_power -file digilent_nexys_video_power.rpt
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+0 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+# set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
+# write_bitstream -force digilent_nexys_video.bit 
+Command: write_bitstream -force digilent_nexys_video.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+Running DRC as a precondition to command write_bitstream
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC CFGBVS-1] Missing CFGBVS and CONFIG_VOLTAGE Design Properties: Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  It is suggested to specify these either using the 'Edit Device Properties' function in the GUI or directly in the XDC file using the following syntax:
+
+ set_property CFGBVS value1 [current_design]
+ #where value1 is either VCCO or GND
+
+ set_property CONFIG_VOLTAGE value2 [current_design]
+ #where value2 is the voltage provided to configuration bank 0
+
+Refer to the device configuration user guide for more information.
+WARNING: [DRC PDRC-153] Gated clock check: Net main_crg_clkin is a gated clock net sourced by a combinational pin clk100_inst/O, cell clk100_inst. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PLHOLDVIO-2] Non-Optimal connections which could lead to hold violations: A LUT clk100_inst is driving clock pin of 8 cells. This could lead to large hold time violations. Involved cells are:
+FDCE, FDCE_1, FDCE_2, FDCE_3, FDCE_4, FDCE_5, FDCE_6, and FDCE_7
+WARNING: [DRC REQP-49] connects_GTGREFCLK0_ACTIVE_connects_GTGREFCLK1_ACTIVE: GTPE2_COMMON cell GTPE2_COMMON: Use of the GTGREFCLK is reserved for test purposes only. This has the lowest performance of the available clocking methods and can degrade transceiver performance.
+WARNING: [DRC RTSTAT-10] No routable loads: 4 net(s) have no routable loads. The problem bus(es) and/or net(s) are builder_xilinxmultiregimpl18_regs1[1:0], and builder_xilinxmultiregimpl19_regs1[1:0].
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 5 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./digilent_nexys_video.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
+INFO: [Common 17-83] Releasing license: Implementation
+9 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_bitstream completed successfully
+write_bitstream: Time (s): cpu = 00:00:30 ; elapsed = 00:00:21 . Memory (MB): peak = 3546.871 ; gain = 427.309 ; free physical = 170 ; free virtual = 2321
+# write_cfgmem -force -format bin -interface spix4 -size 16 -loadbit "up 0x0 digilent_nexys_video.bit" -file digilent_nexys_video.bin
+Command: write_cfgmem -force -format bin -interface spix4 -size 16 -loadbit {up 0x0 digilent_nexys_video.bit} -file digilent_nexys_video.bin
+Creating config memory files...
+Creating bitstream load up from address 0x00000000
+Loading bitfile digilent_nexys_video.bit
+Writing file ./digilent_nexys_video.bin
+Writing log file ./digilent_nexys_video.prm
+===================================
+Configuration Memory information
+===================================
+File Format        BIN
+Interface          SPIX4
+Size               16M
+Start Address      0x00000000
+End Address        0x00FFFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00000000    0x00947A5B    Aug 14 10:51:32 2023    digilent_nexys_video.bit
+0 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+write_cfgmem completed successfully
+# quit
+INFO: [Common 17-206] Exiting Vivado at Mon Aug 14 10:51:35 2023...
+Open On-Chip Debugger 0.11.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+DEPRECATED! use 'adapter driver' not 'interface'
+Info : auto-selecting first available session transport "jtag". To override use 'transport select <transport>'.
+DEPRECATED! use 'adapter speed' not 'adapter_khz'
+fpga_program
+Info : ftdi: if you experience problems at higher adapter clocks, try the command "ftdi_tdo_sample_edge falling"
+Info : clock speed 25000 kHz
+Info : JTAG tap: xc7.tap tap/device found: 0x13636093 (mfg: 0x049 (Xilinx), part: 0x3636, ver: 0x1)
+root@ms2:/home/md/Workspace/LiteX/litesata/bench# 
+
